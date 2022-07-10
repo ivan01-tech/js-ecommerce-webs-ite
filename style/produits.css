@@ -1,0 +1,71 @@
+ :root {
+  --color-pro: rgb(189, 57, 4);
+}
+
+main #produit-div {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  width: 70%;
+  min-height: 500px;
+  background-color: whitesmoke;
+  padding: 20px;
+  box-shadow: 0px 0px 4px black;
+}
+main #produit-div figure {
+  border-right: 0.3px solid var(--color-pro);
+  padding-right: 30px;
+}
+main #produit-div figcaption {
+  text-align: center;
+  padding: 10px;
+  font-weight: 900;
+}
+
+main #produit-div > div strong {
+  color: var(--color-pro);
+  text-transform: uppercase;
+}
+
+#produit-div > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+main #produit-div image {
+  margin: auto;
+}
+
+#quantite,
+#add,
+#sub {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: auto;
+  text-align: center;
+  width: 20%;
+  background-color: whitesmoke;
+  font-weight: bold;
+  border: 1px solid var(--color-pro);
+  font-size: 1.2rem;
+}
+
+/* AJouter Au Panier */
+#ajouter {
+  cursor: pointer;
+  margin-top: 5%;
+  margin-left: 5%;
+  padding: 5% 15%;
+  font-weight: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+  border: 1px solid blue;
+}
+
+.add-to-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 

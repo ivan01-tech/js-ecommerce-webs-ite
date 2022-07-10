@@ -1,0 +1,160 @@
+/******************					Gestion du menu					*********************/
+header a {
+  text-decoration: none;
+}
+header a:visited {
+  color: black;
+}
+header a:hover {
+  color: blue;
+}
+
+header #menu > ul {
+  display: flex;
+  border-bottom: 0.2px var(--trait-color) solid;
+  padding: 10px 0px;
+}
+header #menu li {
+  list-style-type: none;
+}
+
+header #menu > ul > li {
+  padding: 2px;
+  margin: 0px 5px;
+  position: relative;
+}
+
+header #menu > ul > li ul {
+  z-index: 10000;
+  position: absolute;
+}
+
+header #menu > ul > li ul a {
+  font-weight: normal;
+}
+
+/* header #menu ul > li {
+  float: left;
+} */
+header #menu a {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+header #menu ul > li ul li {
+  /* clear: both; */
+  padding: 15px 30px;
+  width: 100%;
+  background-color: var(--sec-color);
+}
+
+header #menu ul > li ul {
+  display: none;
+  width: 150px;
+}
+header #menu ul > li:hover ul {
+  display: block;
+}
+
+/*    Hambergeur for displaying menu   */
+
+header .div-nav {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  margin-top: 60px;
+}
+
+/*************** Active classe ***************/
+
+@media screen and (max-width: 731px) {
+  header #menu {
+    display: flex;
+    padding: 110px 0px 0px 0%;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    min-height: 100%;
+    /* border: 1px solid rgba(240, 242, 248, 0.877); */
+    transform: translateX(-100%);
+    position: absolute;
+    font-size: larger;
+    z-index: 8000;
+    background-color: #101522;
+    animation: translateBack 0.3s ease alternate both;
+  }
+  header #menu > ul {
+    width: 100%;
+  }
+  header #menu ul > li ul {
+    display: none;
+    /* width: 300px; */
+  }
+
+  header #menu.active {
+    left: 0;
+    transform: translateX(0%);
+    animation: translate 0.3s ease-in-out alternate both;
+  }
+  header #menu.active ul > li > a {
+    color: whitesmoke;
+  }
+  header #menu.active ul > li li > a {
+    color: #101522;
+  }
+  header #menu.active a:hover {
+    color: #4b59f7;
+  }
+
+  header #menu ul > li ul li {
+    color: #101522;
+    width: 200px;
+    margin: 0;
+    background-color: whitesmoke;
+  }
+  header #menu > ul > li {
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+    /* margin-bottom: 20%; */
+  }
+
+  #baniere {
+    font-size: 40px;
+    flex-direction: column;
+  }
+  #baniere img {
+    display: none;
+  }
+
+  @keyframes translate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes translateBack {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@media screen and (max-width: 732px) {
+  #baniere img {
+    width: 100%;
+    height: 100%;
+  }
+  #baniere {
+    font-size: 45px;
+  }
+}

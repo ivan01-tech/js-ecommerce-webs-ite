@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Copie Site</title>
+
+	<!- -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<style>
+		
+	@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  : "Montserrat", "Oxygen","Courier New", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: #C3E5F7 !important;
+}
+
+.header {
+  padding-top: 20px;
+  padding: 10px 50px;
+  background-color: white;
+  font-size: 30px;
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+.header .logoName {
+  font-size: 30px;
+  color: black;
+}
+.header .first-letter {
+  color: orange;
+}
+
+/*#entete{
+	border-radius: 20px;
+	height:180px;
+	width: 100%;
+	justify-content: center;
+	background-color: white;
+}*/
+#corps {
+  box-shadow: 1px 1px 5px white;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  margin-top: 0px;
+  max-width: auto;
+  margin-left: 5px;
+}
+#corps .memu {
+  margin-top: 0;
+  min-height: 50px;
+  background-color: #4B5D85;
+  flex-wrap: auto;
+  display: flex;
+  justify-content: space-between;
+}
+#corps .memu li {
+  list-style-type: none;
+  font-size: 2em;
+  margin: auto;
+}
+#corps .memu li a {
+  text-decoration: none;
+  color: white;
+}
+#corps .memu li a:hover {
+  border-bottom: 5px solid orange;
+  color: orange;
+}
+
+.nav-toggle {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  right: -90%;
+}
+
+/****   Transition entete  ****/
+.memu--item {
+  list-style-type: none;
+  font-size: 2em;
+  margin: auto;
+  transition: all 300ms;
+  transform: scale(1);
+}
+
+.memu--item:hover {
+  transform: scale(1.2);
+}
+
+/**     fin transition ***/
+/*     Requetes des Media ***/
+@media screen and (max-width: 720px) {
+  .memu {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: auto;
+    overflow: hidden;
+    display: none !important;
+  }
+  .memu li {
+    padding: 10px 10px;
+  }
+  .memu #traitBas {
+    border-bottom: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .active {
+    display: block !important;
+  }
+
+  .presentation {
+    width: 90% !important;
+    padding: 5px;
+  }
+  .presentation header {
+    margin: 2px;
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .header {
+    flex-direction: column;
+    padding-bottom: 20px !important;
+  }
+
+  .presentation {
+    width: 90% !important;
+    padding: 5px;
+  }
+  .presentation header {
+    margin: 2px;
+    font-size: 35px;
+  }
+
+  #modal-form .formulaire {
+    widht: 80% !important;
+  }
+}
+/*****    Fin requetes des media */
+.d-flex {
+  margin-top: 0 !important;
+}
+
+#traitBas {
+  border-bottom: orange 5px solid;
+}
+
+footer a, nav a {
+  color: black;
+  font-weight: bold;
+}
+footer a:hover, nav a:hover {
+  background-color: #4B5D85;
+  color: white;
+  text-decoration: none;
+}
+
+.presentation {
+  width: 35%;
+  margin: auto;
+  padding: 10px;
+  color: black;
+  text-align: justify;
+}
+.presentation header {
+  color: black;
+  text-align: center;
+  margin: 5px;
+  font-weight: bold;
+}
+
+header {
+  margin-bottom: 20px;
+  : "Montserrat" sans-serif;
+  min-width: 20%;
+  color: black;
+  font-weight: bold;
+  font-size: 1.8em;
+  padding-bottom: 7px;
+  padding-left: 10px;
+}
+
+/*header:hover{
+	text-decoration:underline;
+	color:orange;
+}*/
+footer {
+  box-shadow: 1px 1px 5px white;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  widht: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+footer input {
+  : "Bookman Old Style";
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+}
+footer input:focus {
+  outline: none;
+  border: 2px #4B5D85 solid;
+}
+footer input:not(:focus):invalid {
+  border-color: red;
+  color: white;
+}
+
+#connection {
+  display: inline-block;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.obligatoire::after {
+  content: "*";
+  color: red;
+}
+
+/*** Gezstion entete   ***/
+figure div strong {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+figure {
+  background-color: #4B5D85;
+  display: flex;
+  justify-content: flex-start;
+}
+
+strong {
+  font-weight: bold;
+}
+
+#entete {
+  border-radius: 20px;
+  height: 180px;
+  widht: 100%;
+  justify-content: center;
+  background-color: white;
+}
+
+#imagePrincipale {
+  height: auto;
+  width: 50%;
+}
+
+/*** fin gestion entete **/
+/* Animation on scroll Progress Bar */
+.progressBar {
+  height: 20px;
+  position: fixed;
+  z-index: 111;
+  background: orange;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/*  Fin animation on scroll*/
+/*  Menu Responsif*/
+.widht-menu {
+  width: 90px;
+}
+
+.responsive-menu {
+  height: 100%;
+  widht: 20%;
+  padding: 10px;
+  text-align: left;
+  background: #4B5D85;
+  border-radius: 20px;
+}
+
+.responsive-menu > ul {
+  margin-left: 0 !important;
+}
+
+.responsive-menu ul li {
+  cursor: pointer;
+  widht: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  list-style-type: none;
+  padding: 10px 18px;
+  margin-top: 10px;
+  min-height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.responsive-menu ul li:hover .responsive-menu-hover {
+  transition: all 500ms;
+  top: 100%;
+}
+
+.responsive-menu-hover {
+  position: relative;
+  top: 35%;
+  transform: translateX(150%);
+  background-color: #4B5D85;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.responsive-menu ul li:hover {
+  background-color: orange;
+}
+
+.responsive-menu ul li img {
+  widht: 30px;
+  height: 30px;
+  border-color: white;
+}
+
+.responsive-menu ul li a {
+  text-decoration: none !important;
+  color: white;
+  padding-left: 30px;
+}
+
+.res-menu {
+  widht: 30px;
+  height: 30px;
+  border-color: white;
+  margin-left: 20px;
+}
+
+.res-menu:active {
+  border-color: orange;
+  box-shadow: 1px 1px 10px orange;
+}
+
+#monLogo {
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+
+#monLogo span {
+  padding-right: 35px;
+}
+
+/*  Fin Menu responsif*/
+/*** Classe Modal**/
+#modal-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  left: 0;
+  rigth: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#modal-form .formulaire {
+  width: 50%;
+  height: auto;
+}
+
+/*# sourceMappingURL=firstPage.css.map */
+</style>
+</head>
+<body>
+
+
+		<div class="progressBar"></div>
+    <div class="container-fluid">
+        <div class="header">
+            <span class="logoName"><span class="first-letter">L'INFORMATICICIEN</span>.com</span>
+            <span><span class="first-letter">S</span>ite d'<span class="first-letter">A</span>stuces et <span class="first-letter">T</span>utoriels</span>
+         </div>
+        <div class="d-flex justify-content-center">
+            <!-- RESPONSIVE WEB BAR -->
+            <div class="width-menu responsive-menu">
+                <div>
+                    <div id="monLogo">
+                        <span>LOGO SITE</span>
+                        <img src="menu.png" class="res-menu" alt="UserProfile">
+                    </div>
+                </div>
+                <input type="search" name="Search" class="form-control" placeholder="Search">
+                <ul style="padding:0px;">
+                    <li>
+                        <img src="profile-user.png" alt="">
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <img src="comment.png" alt="UserProfile">
+                        <a href="#">Message</a>
+                    </li>
+                    <li>
+                        <img src="user.png" alt="UserProfile">
+                        <a href="#">User</a>
+                    </li>
+                    <li><img src="rubik.png" alt="UserProfile"><a href="#">Games Challenge</a></li>
+                    <li><img src="briefing.png" alt="UserProfile"><a href="#">FAQ Page</a></li>
+                    <li><img src="online-course.png" alt="UserProfile"><a href="#">Courses</a></li>
+                    <li><img src="project-plan.png" alt="UserProfile"><a href="#">Project</a></li>
+                    <li><img src="sign-in.png" alt="UserProfile"><a href="#modal-form" class="js-modal">Sing In</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Main BOdy
+
+            <span class="responsive-menu-hover">Message</span>
+            -->
+            <div id="corps">
+                <nav>
+                    <img src="menu.png" class="nav-toggle" alt="">
+                    <span class="croix"></span>
+                    <ul class="memu">
+                        <li id="traitBas" class="memu--item"><a href="pagePrincipale.html"> ACCUEIL</a></li>
+                        <li class="memu--item"><a href="#">CONTACT</a></li>
+                        <li class="memu--item"><a href="#">CV</a></li>
+                        <li class="memu--item"><a href="#">MyPROJECT</a></li>
+                    </ul>
+
+                </nav>
+
+                <section class="presentation alert alert-info">
+                    <header>Presentation</header>
+                    <p>
+                        Bienvenu(e) !<br />
+                        Il sera question pour moi dans cette page de vous presenter ce qu'est "L'informaticien".com<br />
+                        Donc vous saurez apres lecture pour quoi ce site a ete créer,qui l'a créé ,et surtout comment naviguer sur ce site.
+                    </p>
+                </section>
+                <section>
+                    <article>
+                        <header> C'est quoi L'informaticien.com ?</header>
+                        <p>
+                            L'informaticien.com est un site né d'une envie de s'exercer d'un apprenant de developpement web.
+                            Donc ne vous moquer pas si vous rencontrer des erreurs ou bien si vous trouvez que mon design manque de maturité .
+                        </p>
+                    </article>
+
+
+                    <article>
+                        <header> Qui à créer ce site ?</header>
+                        <p>
+                            Moi c'est <strong> Ivan SILATSA</strong> etudiant en licence 1 informatique à l'universite de Douala<br />
+                            je veux devenir developpeur fullstack(meme si c'est encore flout pour le moment notement dans les technologie telles que React(Js) et Node(Js)j'aimerais aussi faire du Data Science une fois en Master.
+                            Bon vous en saurez plus sur moi la prochaine fois...
+                        </p>
+                    </article>
+
+                    <article>
+                        <header> Comment naviguer sur ce site ?</header>
+                        <p>
+                            <ul>
+                                <li>
+                                    <a href="Project.html">
+                                        My projects
+                                    </a> 
+                                : je projecte vous presenter dans cette option quelles unes de mes realisations et certains algrithmes que j'aurais implementer. Faites un tour de temps  en temps et vous verrez😉
+                                </li>
+
+
+                                <li><a href="pagecv.html">Cv</a> Içi vous trouverez mon cv en ligne,c'est la que vous saurez plus sur mes reves ,mon parcours scolaire...</li>
+
+                                <li><a href="#">Contact</a> Plus tard losque j'aurai des partenaires cette page vous sera utile pour tout savoir sur l'equipe de redaction des cours et astuces ,car j'ai oublie de vous le dire mais <strong>"Linformaticien.com"</strong> est un site <strong>d'astuces et de tutoriels</strong></li>
+
+                            </ul>
+                        </p>
+                    </article>
+                </section>
+
+            </div>
+        </div>
+
+        <footer>
+
+
+             <figure class="d-flex"> 
+            <img src="entete.png" id="imagePrincipale" alt="Image d'entree dans le site">
+            <div style="padding-left: 10px;">
+                Nom : <strong id="UserName">SILATSA KAKEU</strong><br>
+                Telphone : <strong id="UserContact">IVAN CARLOS</strong><br>
+                Age :<strong id="UserAge"> 21S57273</strong><br>
+                Email  : <strong id="UserEmail">ivansilatsa@gmail.com</strong>
+
+            </div>
+        </figure>
+
+            
+            <a href="#modal-form" class="js-modal">S'incrire ?</a><br />
+            <a href="mailto:ivansilatsa@gmail.com">M'envoyer un Email</a><br />
+            <!-- Formulaure pour se connecter -->
+
+            <div id="modal-form" style="display: none;">
+                <div class="formulaire formulaire my-2 p-3 border rounded mx-auto bg-warning">
+                    <h1 class="text-center">Formulaire D'inscription</h1>
+                    <form action="Formulaire.php" id="myForm">
+                        <fieldset>
+                            <legend class="text-info">Informations Personnelles</legend>
+                            <div class="form-group row">
+                                <label for="nom" class="col-auto">Name :</label>
+                                <input class="form-control col-8" type="text" id="nom" name="nom" placeholder="Your name...">
+                            </div>
+                            <div class="form-group row">
+                                <label for="mdp" class="col-auto">Password :</label>
+                                <input type="password" class="form-control col-8" name="password" id="mdp" placeholder="Your password...">
+                            </div>
+                            <div class="form-group row">
+                                <label for="age" class="col-auto">Age :</label>
+                                <input type="number" id="age" name="age" class="form-control col-5" placeholder="Your age..." max="100" min="10">
+                            </div>
+                            <div class="form-group row">
+                                <label for="mail" class="col-auto">email :</label>
+                                <input type="email" class="form-control col-8" name="email" id="mail" placeholder="Your email...">
+                            </div>
+                            <div class="form-group row">
+                                <label for="telephone" class="col-auto">Contact :</label>
+                                <input type="tel" name="telephone" class="form-control col-5" id="telephone" placeholder="Your contact (cm number)...">
+                                <span id="contactError"></span>
+                            </div>
+
+                        </fieldset>
+                        <div class="form-group row">
+                            <label for="commentaire" class="col-auto">Your Comment : </label>
+                            <textarea type="text" name="commentaire" class="form-control col-6" id="commentaire" placeholder="Que pensez-vous de ce site...?"> 
+                            </textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+            <!--Fin Formulaure pour se connecter -->
+            <p>Tous droits reserves   @ivan01 / 2021-2022</p>
+        </footer>
+
+    </div>
+
+
+<script>
+	
+
+	let modal = null;
+
+function trueInput(champ){
+    champ.style.borderColor="green";
+}
+function falseInput(champ){
+    champ.style.borderColor="red";
+}
+
+
+let formulaire = document.getElementById('myForm');
+ 
+ formulaire.addEventListener('submit',(e)=>{
+    
+    /*** Traitement champs contact **/
+ 	let telephone=formulaire.telephone;
+ 	let reg = /^\+2376[0-9]{8}$/;
+ 	if ( ! reg.test(telephone.value) ){
+ 		telephone.style.borderColor = "red";
+ 		document.getElementById('contactError').innerHTML = "<span class=\"m-1\">X</span>";
+ 		document.getElementById('contactError').style.color="red";
+ 	}
+ 	else{
+
+ 		document.getElementById('contactError').innerHTML = "#";
+ 		document.getElementById('contactError').style.color="green";
+ 		telephone.style.borderColor = "green";
+        window.localStorage.tel = telephone.value;
+        document.getElementById('UserContact').innerHTML=telephone.value;
+ 	}
+    /*****    NOM ***/
+    let nom = formulaire.nom;
+    if(nom.value.length >= 4){
+        trueInput(nom);
+        window.localStorage.name=nom.value;
+        document.getElementById('UserName').innerHTML=nom.value;   
+    }
+    else
+        falseInput(nom);
+  /*** Password***/
+
+    let password = formulaire.password
+    if(password.value =='password' || password.value <5)
+        falseInput(password);
+    else
+        trueInput(password);
+
+    let age = formulaire.age;
+    
+        document.getElementById('UserAge').innerHTML=age.value;
+        window.localStorage.age = age.value;
+
+
+        e.preventDefault();
+ });
+
+
+ ///    Mise a Jour DES Utilisateur
+ if(window.localStorage.name !=null)
+    document.getElementById('UserName').innerHTML=window.localStorage.name;
+else
+    document.getElementById('UserName').innerHTML="inconu";   
+        // Age
+if(window.localStorage.age){
+        document.getElementById('UserAge').innerHTML = window.localStorage.age;
+    }
+
+// Progress bar
+let handleScroll = () => {
+    progressBar.style.display = "block";
+    const heigth = document.body.scrollHeight; //taille du site
+    const windowheight = window.innerHeight; // taille navigateur
+    const position = window.pageYOffset; // position de la souris par rapport au site
+
+    const heigthTrac = heigth - windowheight;
+    const percentage = Math.floor((position/heigthTrac)*100);
+    progressBar.style.right = 100 - percentage + "%";
+    progressBar.innerHTML= percentage +"%";
+    if(percentage == 0 )
+        progressBar.innerHTML ="";
+
+}
+
+const progressBar = document.querySelector('.progressBar');
+progressBar.style.display = "none";
+window.addEventListener('scroll',handleScroll);
+
+//*************************** Gestion du modal
+const ouvertureModal = function(e){
+    e.preventDefault();         
+    const target =document.querySelector(e.target.getAttribute('href'));
+    target.style.display =null;
+    modal = target;
+    modal.querySelector(".formulaire").addEventListener('click',stopPropagation);
+    modal.addEventListener('click',fermeModal);  // ceci represente la boite modal
+   // modal.querySelector(".js-modal-close").addEventListener('click',fermeModal);
+
+}
+
+const stopPropagation = function (e){
+    e.stopPropagation();
+}
+const fermeModal = function(e){
+    if(modal === null) return;
+    e.preventDefault();
+      modal.querySelector(".formulaire").removeEventListener('click',stopPropagation);
+    modal.style.display ="none";
+    //modal.setAttribute('aria-hidden','true');
+    //modal.removeAttribute('aria-modal');
+   modal.removeEventListener('click',fermeModal);  // ceci represente la boite modal
+  //  modal.querySelector(".js-modal-close").removeEventListener('click',fermeModal);   
+    modal = null;
+
+}
+
+let OuvreModal = document.querySelectorAll('.js-modal');
+OuvreModal.forEach(link => {
+    link.addEventListener('click',ouvertureModal) ;
+});
+
+/*********** FIN GESTION MODAL ****************/
+
+/*********** Menu Responsif ****************/
+
+let menuImage = document.querySelector('.res-menu');
+let menuResponsif = document.querySelector('.responsive-menu');
+let logo = document.querySelector('#monLogo').querySelector('span');
+let a = menuResponsif.querySelectorAll('a');
+
+menuImage.addEventListener('click',function(){
+    menuResponsif.classList.toggle('widht-menu');
+    logo.classList.toggle('hidden');
+    for( link of a){
+        link.classList.toggle('hidden');
+    }
+
+});
+
+let menu = document.querySelector('.memu');
+let toggleNav = document.querySelector('.nav-toggle');
+toggleNav.addEventListener('click',()=>{
+    menu.classList.toggle('active');
+});
+
+/*********** Menu Responsif  Fin ****************/
+
+
+</script>
+</body>
+</html>

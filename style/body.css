@@ -1,0 +1,25 @@
+/*******Animation Font incone***********/
+.reduction .fa-solid{
+    animation: rotation infinite 5s linear ;
+
+    border-color: blue;
+}
+
+@keyframes rotation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(380deg);
+    }
+}
+
+/* Big title */
+.title{
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem 0rem;
+    font-size: 150%;
+    text-transform: uppercase;
+    /* color: #0B59f7; */
+}

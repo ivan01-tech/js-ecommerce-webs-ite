@@ -1,0 +1,120 @@
+/* 		categories	 */
+
+  .categories,
+  .produits {
+    max-width: 1000px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    grid-gap: 30px;
+    margin: auto;
+  }
+  .produits img, .categories img{
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  .categories a {
+    color: var(--first-color);
+  }
+  .produits a {
+    color: var(--sec-color);
+  }
+  
+  .categories a:hover {
+    color: white;
+  }
+  .produits a {
+    color: white;
+  }
+  .produits a:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .categories article,
+  .produits article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    transition: all 300ms;
+  }
+  .categories article {
+    box-shadow: 0px 0px 4px black;
+  }
+  .categories article p,
+  .produits article p {
+    margin: 10px;
+    font-weight: bolder;
+  }
+  .categories article:hover {
+    opacity: 0.8;
+  }
+  .categories article button,
+  .produits article button {
+    width: 95%;
+    margin: auto;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 15px 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: solid var(--first-color) 0.5px;
+    color: var(--first-color);
+    transform: all 300ms;
+    background-color: white;
+    font-size: 1.3rem;
+  }
+  .produits article button {
+    background-color: var(--first-color);
+    color: whitesmoke;
+  }
+  .produits article button:hover {
+    opacity: 0.8;
+  }
+  
+  .categories article button:hover,
+  .produits article button:hover {
+    background-color: var(--first-color);
+    color: whitesmoke;
+  }
+  
+  /***************** produits *******************/
+  .produits article {
+    box-shadow: 0px 0px 20px #777;
+  }
+  .produits img {
+    transform: scale(1);
+    transition: all 300ms;
+  }
+  .produits article:hover img {
+    transform: scale(0.9);
+  }
+  header .fa-solid {
+    font-size: 1.2rem;
+  }
+  
+  @media screen and (max-width: 729px) {
+    #menu > ul {
+      flex-direction: column;
+    }
+  
+    .categories , .produits{
+          display: grid;
+  
+          margin: 0 auto;
+          max-width: 1170px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-row-gap: 1.5rem;
+          grid-column-gap: 2rem;
+  
+      }
+
+  }
+  

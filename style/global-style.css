@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  *::selection {
+    background-color: lightblue;
+  }
+  
+  :root {
+    --sec-color: whitesmoke;
+    --trait-color: #e0e1e2;
+    --first-color: blue;
+    --bac-color: black;
+  }
+  body{
+    background-color: white;
+  }
+  

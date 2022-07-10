@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<!-- Css GOES HERE-->
+
+	<title>Page d'accueil e-Commerce</title>
+	<link rel="stylesheet" type="text/css" href="../style/entete-acceuil.css">
+	<link rel="stylesheet" type="text/css" href="../style/menu.css">
+	<link rel="stylesheet" type="text/css" href="../style/footer.css">
+	<link rel="stylesheet" type="text/css" href="../style/body.css">
+	<link rel="stylesheet" type="text/css" href="../style/produits.css">
+
+
+	<!--  Boostrap  import here let' start . -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Font Awesome import -->
+	<script src="https://kit.fontawesome.com/6e9fe23901.js" crossorigin="anonymous"></script>
+
+	<!-- javascript here -->
+	<!-- <script type="text/javascript" src="js/banner-effect.js" defer></script> -->
+
+	<script type="text/javascript" src="js/menu.js" defer></script>
+
+
+</head>
+
+<body>
+	<header>
+		<aside class="d-flex align-items" id="welcome">
+			<P class="welcome-message">Bienvenu sur e-Commerce !</P>
+			<div class="d-flex">
+				<p class="d-flex align-items justify-content"><a href="#">
+						<i class="fa-solid fa-user"></i>
+						<span>Sign in</span></a>
+				</p>
+				<p class="contact"><a href="#"> Nous Conctatez</a></p>
+			</div>
+		</aside>
+
+		<aside class="d-flex align-items justify-content-bet" id="fixed-head">
+			<!-- partie fixe -->
+			<p class="p-30"><span class="logo-design">e-Commerce</span></p>
+			<div class="d-flex">
+				<p class="">
+					<!-- <i class="fa-solid fa-phone"></i> // <i class="fa-thin fa-star"></i> -->
+					<a href="tel:+237696054619">
+						+237696054619<i class="fa-solid fa-phone"></i>
+					</a>
+				</p>
+				<p class="contact d-flex align-items justify-content">
+					<a href="#">
+						<i class="fa-solid fa-bag-shopping"></i>
+						<span> Mon panier</span>
+					</a>
+
+				</p>
+
+			</div>
+		</aside>
+		<div class="div-nav">
+
+		</div>
+		<p class="display-menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</p>
+
+		<nav id="menu">
+			<ul>
+				<li>
+					<a href="page-accueil.html">ACCUEIL</a>
+				</li>
+
+				<li>
+					<a href="#">NOS PRODUITS></a>
+					<ul>
+						<li><a href="#">Chaussures</a></li>
+						<li><a href="#">Mixtes</a></li>
+						<li><a href="#">Fruits</a></li>
+						<li><a href="#">Habits</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href=""><strong>A propos</strong></a>
+				</li>
+
+				<li>
+					<a href="#">CATEGORIES></a>
+					<ul>
+						<li><a href="#">Chaussures</a></li>
+						<li><a href="#">Mixtes</a></li>
+						<li><a href="#">Fruits</a></li>
+						<li><a href="#">Habits</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#">Blog-Conseils</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+
+
+	<main>
+		<!-- main  -->
+		<div id="produit-div">
+			<figure>
+				<img src="../data/ensemble.jpg" width="400px" height="400px"
+					alt="image pour la categories de produits Fruits">
+				<figcaption>ENSEMLBLE VETEMENTS</figcaption>
+			</figure>
+
+			<div>
+				<div>Designation : <strong>Every Day ensemble VETEMENTS </strong> </div>
+				<div>Prix : <strong>5000</strong> FCFA</div>
+				<div>Quantité En Stock : <strong> 10 </strong> </div>
+				<div>
+					Commande:
+					<button id="sub"> - </button>
+					<span id="quantite"> 0 </span>
+					<button id="add"> + </button>
+				</div>
+				<div id="add-to-box">
+					<button id="ajouter">Ajouter Au Panier</button>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+
+
+	<footer class="">
+		<!-- foooter -->
+		<div class="">
+
+			<div class="first-part">
+				<div class="p-30" style="align-self:center;"><span class="logo-design">e-Commerce</span></div>
+
+				<div>
+					<h3 class="abonner">S'abonner a notre Newsletter</h3>
+					<em>Pour recevoir des nouveautes de nos produits chaque jours</em>
+				</div>
+
+				<input type="text" class="form-control bg bg-dark text-white"
+					placeholder="Entrer votre adresse Email...">
+				<button class="btn bg-primary text-white "> Souscrire </button>
+			</div>
+
+			<div class="second-part">
+				<div>
+					<p><span class="color">Conctats</span></p>
+					<ul>
+						<li class="text-white-50">HORAIRE : <br> Lun - Ven ( 08h00-19h00 )</li>
+						<li class="text-white-50"> ADRESSE : <br> Logbessou PK-17 (UDO)</li>
+						<!-- <li></li> -->
+					</ul>
+				</div>
+
+				<div>
+					<p class="title-footer"><span class="color">Mon compte</span></p>
+					<ul>
+						<li class="text-white-50"> A propos de Nous</li>
+						<li class="text-white-50">Mes Commandes</li>
+						<li class="text-white-50">Conditions et termes de vente </li>
+
+					</ul>
+				</div>
+
+				<div>
+					<p class="title-footer"><span class="color">Quelques Images</span></p>
+					<ul>
+						<li class="text-white-50"> Produits</li>
+						<li class="text-white-50">Clienteles</li>
+						<li class="text-white-50">Emplacement</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<p class="end-footer"> e-Commerce © 2021- @ivan01/Tous droits resérvés </p>
+	</footer>
+
+</body>
+
+</html>

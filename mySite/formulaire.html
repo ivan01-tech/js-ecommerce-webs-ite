@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+ 	<html>
+ 	<head>
+ 		<meta charset="utf-8">
+
+ 		<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Amaranth:700' rel='stylesheet' type='text/css'>
+
+ 		<title> Formulaire</title>
+ 		<style>
+ 			
+
+ 			body{
+ 				height: 300vh;
+ 			}
+ 			.progressBar{
+ 				height: 30px;
+ 				position: fixed;
+ 				top: 0;
+ 				left: 0;
+ 				right: 0;
+ 				background-color:orange;
+ 				z-index: 123;
+ 				box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+ 				text-align: center;
+ 				font-weight: bold;
+ 			}
+
+ 		</style>
+
+
+ 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ 	</head>
+ 	<body class="bg-info">
+
+ 		<div class="progressBar "></div>
+ 		<div class="container my-2 p-3 border rounded mx-auto bg-white">
+ 			
+ 		<h1 class="text-center">Formulaire & D'inscription</h1>
+ 		<mark style=" background-color: red;">jhvkuyvku</mark>
+ 		<form action="/" id="myForm">
+ 			<fieldset>
+ 				<legend class="text-info">Informations Personnelles</legend>
+ 				<div class="form-group row">
+ 					<label for="nom" class="col-auto">Name :</label>
+ 					<input class="form-control col-8" type="text" id="nom" name="nom" placeholder="Your name...">
+ 				</div>
+ 				<div class="form-group row">
+ 					<label for="mdp" class="col-auto">Password :</label>
+ 					<input type="password" class="form-control col-8" name="password" id="mdp" placeholder="Your password...">
+ 				</div>
+ 				<div class="form-group row">
+ 					<label for="age" class="col-auto">Age :</label>
+ 					<input type="number"id="age" name="age"  class="form-control col-5"placeholder="Your age..." max="100" min="10">
+ 				</div>
+ 				<div class="form-group row">
+ 					<label for="mail" class="col-auto">email :</label>
+ 					<input type="email" class="form-control col-8" name="email" id="mail" placeholder="Your email...">
+ 				</div>
+ 				<div class="form-group row">
+ 					<label for="telephone" class="col-auto">Contact :</label>
+ 					<input type="tel" name="telephone" class="form-control col-5" id="telephone" placeholder="Your contact...">
+ 					<span id="contactError"></span>
+ 				</div>
+
+ 			</fieldset>
+ 			<fieldset>
+ 				<legend class="text-info">Commentaire ...</legend>
+ 				<div class="form-group">
+ 					<input type="checkbox" name="patate" value="patate"><label for="patate">Patate</label>
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="checkbox" name="banane" value="banane"><label for="banane">Banane</label>
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="checkbox" name="pomme"><label for="pomme" value="pomme">Pomme</label>
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="checkbox" name="plantain" id="plantain"><label for="plantain"value="plantain" >Plantain</label>
+ 				</div>
+ 				<div class="row">
+
+ 					<label for="ville" class="col-auto">Dans quelle ville habitez vous?</label><select id="ville" name="ville" 	class="form-group col-3">
+ 						<optgroup label="Cameroun">
+ 							<option value="yde">Yaounde</option>
+ 							<option value="koti">Koti</option>
+ 							<option value="bfs">Bofoussam</option>
+	 						<option value="dle">Douala</option>
+ 						</optgroup>
+ 						<optgroup label="france">
+ 							<option value="Bruxelle">Bruxelle</option>
+ 							<option value="Paris">Paris</option>
+ 							<option value="Autres">Autres...</option>
+ 						</optgroup>
+ 					
+ 					</select>
+ 				</div>
+ 				<div class="form-group">
+ 				<label for="cmt">Aimez vous ce formulaire ?</label><textarea id="cmt" class="form-control" placeholder="Votre avis..." >
+ 				</textarea>
+ 				</div>
+ 			</fieldset>
+ 			<button type="submit" class="btn btn-outline-success">Envoyer</button>
+ 		</form>
+ 		</div>
+ 	<script type="text/javascript" src="formulaire.js"></script>
+ 	</body>
+ 	</html>
+ 	
