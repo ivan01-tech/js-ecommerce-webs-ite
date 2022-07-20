@@ -2,7 +2,7 @@
 .reduction .fa-solid{
     animation: rotation infinite 5s linear ;
 
-    border-color: blue;
+    border-color: var(--first-color);
 }
 
 @keyframes rotation{
@@ -16,10 +16,10 @@
 
 /* Big title */
 .title{
-    font-weight: 700;
+    font-weight: 900;
     text-align: center;
-    margin: 2rem 0rem;
-    font-size: 150%;
+    margin: 5rem 0rem 2rem 0rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     /* color: #0B59f7; */
 }

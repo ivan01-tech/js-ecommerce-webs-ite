@@ -2,12 +2,14 @@
 const changeTagOfFloatMessage = () => {
   let floatMessage = document.querySelector(".float-message");
   if (window.innerWidth <= 730) {
-    floatMessage.innerHTML = "<marquee >Bienvenu sur e-Commerce !</marquee>";
+    floatMessage.innerHTML = "<marquee >Bienvenu sur e-Shoes ! Chez Nous Chez Nous</marquee>";
     floatMessage.style.width = '50%'
+    // floatMessage.style.height = '10%'
   }
   if (window.innerWidth > 730) {
-    floatMessage.innerHTML = "<span >Bienvenu sur e-Commerce !</span>";
+    floatMessage.innerHTML = "<span >Bienvenu sur e-Shoes ! Chez Nous Chez Nous</span>";
     floatMessage.style.width = '70%'
+    // floatMessage.style.height = '10%'
   }
 };
 

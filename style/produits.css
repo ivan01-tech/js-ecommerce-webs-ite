@@ -59,8 +59,8 @@ main #produit-div image {
   font-weight: 1.2rem;
   font-weight: bold;
   color: white;
-  background-color: blue;
-  border: 1px solid blue;
+  background-color: var(--first-color);
+  border: 1px solid var(--first-color);
 }
 
 .add-to-box {
