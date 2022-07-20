@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--first-color);
+  padding: 6rem 4rem;
+  /* color: #010114e8; */
+  color: white;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.banner img {
+  max-width: 100%;
+}
+.banner .banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.banner-content .left-section {
+  width: 50%;
+}
+.banner-content .right-section {
+  max-width: 50%;
+}
+
+.banner-content .headline {
+  font-weight: 900;
+  font-size: 150%;
+  position: relative;
+  font-family: "Josefin Sans";
+}
+.banner-content .small-title {
+  font-weight: 900;
+  color: rgb(13, 221, 228);
+  position: relative;
+  /* animation: pos1 1s ease-in-out forwards; */
+}
+
+.banner-content .description {
+  font-size: 1.5rem;
+}
+/*Media querry  */
+@media all and (max-width: 730px) {
+  .banner-content {
+    flex-direction: column;
+  }
+  .banner-content .left-section {
+    width: 100%;
+  }
+  .banner-content .right-section {
+    max-width: 100%;
+  }
+}
+
+@keyframes pos1 {
+  from {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes pos2 {
+  from {
+    opacity: 0;
+    transform: translateY(-300%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes pos3 {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes pos4 {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
