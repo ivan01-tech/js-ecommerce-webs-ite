@@ -91,7 +91,7 @@ const Produits = [
     image: "../data/img/chaussure12.jpg",
   },
   {
-    id: 8,
+    id: 18,
     title: "chaussure 6nike",
     price: "3500",
     image: "../data/img/chaussure13.jpg",
@@ -103,7 +103,7 @@ const Produits = [
     image: "../data/img/chaussure14.jpg",
   },
   {
-    id: 2,
+    id: 20,
     title: "chaussure 6nike",
     price: "3500",
     image: "../data/img/chaussure15.jpg",
