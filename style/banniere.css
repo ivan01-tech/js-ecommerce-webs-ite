@@ -1,10 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
-
 .banner {
   display: flex;
   justify-content: center;
   align-items: center;
-  
   background-color: var(--first-color);
   padding: 6rem 4rem;
   /* color: #010114e8; */

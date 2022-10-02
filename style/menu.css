@@ -12,6 +12,7 @@ header a:hover {
   color: var(--first-color);
 }
 @media screen and (min-width: 732px) {
+
   header #menu > ul {
     display: flex;
     border-bottom: 0.2px var(--trait-color) solid;
@@ -79,6 +80,18 @@ header .div-nav {
 /*************** Active classe ***************/
 
 @media screen and (max-width: 731px) {
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(241, 147, 69, 0.185);
+    z-index: 1000;
+    visibility: hidden;
+  }
+  .cart-overlay.active{
+    visibility: visible;
+  }
   header #menu {
     display: flex;
     padding: 50px 0px 0px 0%;
@@ -86,7 +99,7 @@ header .div-nav {
     position: absolute;
     top: 0;
     width: 50vw;
-    min-height: 300vh;
+    min-height: 100vh;
     /* height: 100vh; */
     transform: translateX(-100%);
     font-size: 1rem;

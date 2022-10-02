@@ -1,9 +1,7 @@
 import Produits from './produits.js'
+import { populateCart, populateProducts } from './populate-cart.js'
 // End of products 
 
-// TODO fontionnalite d'increment decrement des products.
-console.log(window.location.hash);
-window.location.hash = '/ivan'
 // Variable
 const cartContainer = document.querySelector('.cart-grille')
 const cartLayout = document.querySelector('.cart-container')
@@ -17,14 +15,15 @@ let ProductDOM = document.querySelector('.produits')
 let priceTotal1 = document.querySelector('.price span')
 let itemTotal = document.querySelector('.number-item')
 
-let incrementButton = []
-let decrementButton = []
-let amountDOM = []
-
 let cart = []
 let buttonsDOM = []
-let removeItemsLinks = []
-let PRODUCTS = Produits
+let PRODUCTS = []
+/**
+ * Api test
+ */
+
+
+
 // LocalStorage Class
 class Storage {
   static saveProducts(products) {
@@ -53,94 +52,16 @@ class Storage {
 class UI {
   displayProducts(products) {
     let result = ''
-    products.forEach(function (produit, ind) {
-      result += `<article class="product-item">
-        <img src='${produit.image}' alt=${produit.title} />
-        <div class="details">
-          <h4>${produit.title}</h4>
-          <h5 class="prix" >${produit.price} FCFA</h5>
-        </div>
-        <button class="add-button" data-id=${produit.id}>Add in Cart</button>
-      </article>`
+
+    products?.forEach(function (produit, ind) {
+      result += populateProducts(produit)
     })
+
+
+
     ProductDOM.innerHTML = result
   }
-  // remove a Product
-  static removeItems() {
-    const removeLinks = document.querySelectorAll('.remove-item')
-    removeItemsLinks = [...removeLinks]
-    removeLinks.forEach(link => {
-      // console.log(link);
-      link.addEventListener('click', function (e) {
-        e.target.style.backgroundColor = 'red'
-        const id = e.target.dataset.id
-        // console.log(id);
-        UI.updateProductsStatusFromLocal(id)
-        UI.removeItemsById(id)
-        UI.updateApp()
-      })
-    })
-  }
-  static removeItemsById(id) {
-    cart = cart.filter(item => item.id != id)
-    Storage.saveCart(cart)
-  }
 
-  static incrementDecrement() {
-    incrementButton.forEach(btn => {
-      const id = btn.dataset.id
-      btn.addEventListener('click', function () {
-        // console.log(id, 'id+');
-        UI.incrementById(id)
-      })
-    })
-
-    decrementButton.forEach(btn => {
-      const id = btn.dataset.id
-      btn.addEventListener('click', function (e) {
-        UI.decrementById(id)
-        // console.log(id, 'id-');
-      })
-    })
-  }
-
-  // increment a card item
-  static incrementById(id) {
-    cart = cart.map(item => {
-      if (item.id == id) {
-        if (item.amount >= 10) {
-          alert('pas plus');
-        } else {
-          item.amount = item.amount + 1
-          let current = amountDOM.find(count => count.dataset.id == id)
-          current.innerHTML = item.amount
-        }
-      }
-
-      return { ...item }
-    })
-    Storage.saveCart(cart)
-    UI.updateCountedValue(cart)
-  }
-
-  static decrementById(id) {
-    cart = cart.map(item => {
-      if (item.id == id) {
-        if (item.amount <= 1) {
-          alert('pas moins');
-        } else {
-          item.amount = item.amount - 1
-          let current = amountDOM.find(count => count.dataset.id == id)
-          current.innerHTML = item.amount
-        }
-      }
-      return { ...item }
-    })
-
-    // console.log(cart);
-    Storage.saveCart(cart)
-    UI.updateCountedValue(cart)
-  }
 
   static addToCart() {
     const AddButton = [...document.querySelectorAll('.add-button')]
@@ -167,10 +88,10 @@ class UI {
           // this.openCloseCart()
           UI.openCart()
           // update
-          // this.updateCountedValue(cart)
-          UI.updateCountedValue(cart)
+          // this.updateCountedValues(cart)
+          UI.updateCountedValues(cart)
           // remove item
-          UI.removeItems()
+          // UI.removeItems()
           // TODO ....
 
         })
@@ -183,39 +104,89 @@ class UI {
       cartContainer.innerHTML = "You currently don't have a product"
     }
     cart?.forEach(ele => {
-      result += `<div class="cart-item">
-      <img src=${ele?.image} alt="">
-      <div class="desc">
-        <h4>${ele?.title}</h4>
-        <h5> <span class="cart-item-price">${ele?.price + ' '}</span>FCFA</h5>
-        <p><a class="remove-item" data-id=${ele?.id} href="#">retirer du panier</a></p>
-        <div class="count">
-          <button class='decrement' data-id=${ele
-          .id}>-</button>
-          <span data-id=${ele.id} class="count-number">${ele?.amount}</span>
-          <button class='increment' data-id=${ele?.id}>+</button>
-        </div>
-      </div>
-    </div>`
+      result += populateCart(ele)
     })
     cartContainer.innerHTML = result
-    UI.removeItems()
 
-    incrementButton = [...document.querySelectorAll('.increment')]
-    decrementButton = [...document.querySelectorAll('.decrement')]
-    amountDOM = [...document.querySelectorAll('.count-number')]
+    const cartItem = document.querySelectorAll('.cart-item')
+    cartItem.forEach((item) => {
+      item.addEventListener('click', function (e) {
 
-    UI.incrementDecrement()
+        if (e.target.classList.contains('remove-item')) {
+          const removedItem = e.target
+          const id = removedItem.dataset.id
+          const removedItemParent = e.target.parentElement.parentElement.parentElement
+          // console.log(id, removedItemParent);
+          UI.removeItemsById(id)
+          cart = Storage.getCart()
+          cartContainer.removeChild(removedItemParent)
+          UI.updateProductsStatusFromLocal(id)
+          UI.updateCountedValues(cart)
+        } else if (e.target.classList.contains('increment')) {
+          const incrementItem = e.target
+          const id = incrementItem.dataset.id
+          UI.incrementById(id, incrementItem)
+        } else if (e.target.classList.contains('decrement')) {
+          const incrementItem = e.target
+          const id = incrementItem.dataset.id
+          UI.decrementById(id, incrementItem)
+        }
+
+      })
+    })
 
   }
 
-  static updateCountedValue(cart) {
+  static decrementById(id, DOMElelement) {
+    cart = cart.map(item => {
+      if (item.id == id) {
+        if (item.amount <= 1) {
+          alert('pas moins');
+        } else {
+          item.amount = item.amount - 1
+          let current = DOMElelement.nextElementSibling
+          current.textContent = item.amount
+        }
+      }
+      return { ...item }
+    })
+
+    // console.log(cart);
+    Storage.saveCart(cart)
+    UI.updateCountedValues(cart)
+  }
+
+  static incrementById(id, DOMElelement) {
+    cart = cart.map(item => {
+      if (item.id == id) {
+        if (item.amount >= 10) {
+          alert('pas plus');
+        } else {
+          item.amount = item.amount + 1
+          let current = DOMElelement.previousElementSibling
+          // console.log(current);
+          current.textContent = item.amount
+        }
+      }
+
+      return { ...item }
+    })
+    Storage.saveCart(cart)
+    UI.updateCountedValues(cart)
+  }
+
+  static removeItemsById(id) {
+    cart = cart.filter(item => item.id != id)
+    Storage.saveCart(cart)
+  }
+
+  static updateCountedValues(cart) {
     const prices = cart?.reduce((total, item) => total + item.amount * item.price, 0)
-    const item = cart?.reduce((total, item) => total + 1, 0)
+    const item = cart?.reduce((total, item) => total + item.amount, 0)
     priceTotal.textContent = prices ? prices : 0
     priceTotal1.textContent = prices ? prices : 0
     itemTotal.textContent = item ? item : 0
-    console.log(prices, item);
+    // console.log(prices, item);
   }
 
   static openCart() {
@@ -229,24 +200,23 @@ class UI {
   // update value onload 
   static updateApp() {
     cart = Storage.getCart()
-    console.log(cart, 'uC');
-    UI.updateCountedValue(cart)
+
+    UI.updateCountedValues(cart)
 
     UI.addCartToDOM(cart)
-    UI.removeItems()
-
+    // UI.removeItems()
 
   }
 
   clearAllCartContent() {
     const ids = cart?.map(item => item.id)
-    console.log(ids);
+    // console.log(ids);
     ids?.forEach(id => {
       UI.updateProductsStatusFromLocal(id)
     })
     cart.length = 0
     Storage.saveCart(cart)
-    UI.updateCountedValue(cart)
+    UI.updateCountedValues(cart)
     UI.addCartToDOM(cart)
     UI.closeCart()
   }
@@ -264,9 +234,11 @@ class UI {
 
 class Products {
   async getProduit() {
-    const data = await fetch('./products.json').then((res) => console.log(res)).catch((err) => console.log(err))
-    console.log(data);
-    return data
+    const response = await fetch('http://localhost:3000/products')
+    const data = await response.json()
+
+    PRODUCTS = [...data]
+
   }
 
   static getProductsById(id) {
@@ -277,31 +249,33 @@ class Products {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+
   let ui = new UI()
   let Product = new Products()
-  const datas = Product.getProduit()
-  ui.displayProducts(PRODUCTS)
-  UI.updateApp()
-  // Product.getProducts()
-  Storage.saveProducts(PRODUCTS)
-  UI.addToCart()
+  Product.getProduit().then(res => {
+    console.log(res);
+    ui.displayProducts(PRODUCTS)
+    UI.updateApp()
+    // Product.getProducts()
+    Storage.saveProducts(PRODUCTS)
+    UI.addToCart()
 
-  // clear all cart
-  clearAllCartButton.addEventListener('click', function () {
-    ui.clearAllCartContent()
-    UI.closeCart()
+    // clear all cart
+    clearAllCartButton.addEventListener('click', function () {
+      ui.clearAllCartContent()
+      UI.closeCart()
+    })
+    // close Cart 
+    closeCartIcon.addEventListener('click', UI.closeCart)
+    cartIcon.addEventListener('click', UI.openCart)
+
+
   })
-  // close Cart 
-  closeCartIcon.addEventListener('click', UI.closeCart)
-  cartIcon.addEventListener('click', UI.openCart)
 
-  incrementButton = [...document.querySelectorAll('.increment')]
-  decrementButton = [...document.querySelectorAll('.decrement')]
-  amountDOM = [...document.querySelectorAll('.count-number')]
 
-  UI.incrementDecrement()
+
 })
 
-
-// UI.incrementDecrement()
 

@@ -2,7 +2,7 @@
 const changeTagOfFloatMessage = () => {
   let floatMessage = document.querySelector(".float-message");
   if (window.innerWidth <= 730) {
-    floatMessage.innerHTML = "<marquee >Bienvenu sur e-Shoes ! Chez Nous Chez Nous</marquee>";
+    floatMessage.innerHTML = "<marquee >Bienvenu sur e-Shoes !</marquee>";
     floatMessage.style.width = '50%'
     // floatMessage.style.height = '10%'
   }

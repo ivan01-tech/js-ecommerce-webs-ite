@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oxygen&display=swap");
-
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Montserrat:ital@1&family=Poppins:wght@300&family=Roboto&display=swap'); */
 
 /* Welcome Message */
 
@@ -14,6 +11,7 @@
   background-color: var(--sec-color);
   border-bottom: 0.2px var(--trait-color) solid;
   height: min-content;
+  /* background-color: #EFEFEF; */
 }
 #welcome a {
   font-weight: 900;
